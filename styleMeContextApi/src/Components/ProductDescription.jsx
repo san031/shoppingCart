@@ -9,6 +9,8 @@ function ProductDescription() {
     setItemCount((prev) => prev+1)
   }
   const decrement =()=>{
+    if (itemcount<=0){
+      return;}
     setItemCount((prev) => prev-1)
 
   }

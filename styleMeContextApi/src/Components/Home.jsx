@@ -2,12 +2,11 @@ import React from 'react'
 // import coverPic from '../images/styleMe_home.jpg'
 import coverPic from '../Components/images/styleMe_home.jpg'
 import coverPic2 from '../Components/images/styleMe_home2.jpg'
-import coverPic4 from '../Components/images/styleMe_home4.jpg'
+import coverPic4 from '../Components/images/styleMe_home4.jpg'  
 function Home() {
   return (
    <>
-    <div className='grid grid-cols-[1fr_1fr_1fr]  
-h-screen p-7 m-7  relative'>
+    <div className='grid grid-cols-[1fr_1fr_1fr]  h-screen p-7 m-7  relative'>
 
       
 

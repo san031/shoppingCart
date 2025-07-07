@@ -6,7 +6,7 @@ import Cart from './Components/Cart'
 import ProductDescription from './Components/ProductDescription'
 import Home from './Components/Home'
 import Root from './Root'
-import { CartContextProvider } from './context/CartContext'
+import { CartContextProvider } from './Context/CartContext'
 import { useEffect, useState } from 'react'
 
 
@@ -16,22 +16,18 @@ function App() {
     const [apiData,setApiData] = useState([])
 
     const [cartItems, setCartItems] = useState([])
-
+  
     const addToCart = (products) =>{
-      const checkExisting = cartItems.find((item) => item[0]===products[0])
-      console.log(checkExisting)
-      if (checkExisting){
-        // {cartItems.map= (prev) => (
-        //   prev[0]===products[0] ? prev[1]+= products[1] * products[3]: prev
-        //   // (prev[0]===products[0]) ? {prev[1]=itemcount*products[1] }: prev
-        //   //
-        // )}
+      setCartItems((prevItem) => {
+        const checkExisting = prevItem.find((item) => item.id===products.id)
+        if (checkExisting){
+          return prevItem.map((item) => ((item.id === products.id) ? 
+          {...item, [item[2]] : products.itemcount *products.price }:
+           item))
+        }
         
-      setCartItems([...cartItems,products])
-      }
-      else{
-        setCartItems([...cartItems,products])
-      }
+        return [...prevItem,products]
+      })
       
       // console.log(itemcount)
     }
@@ -39,8 +35,7 @@ function App() {
     
    
     
-    
-    useEffect(() => {
+     useEffect(() => {
       fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then(data => 
