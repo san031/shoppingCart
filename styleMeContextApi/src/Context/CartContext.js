@@ -4,7 +4,7 @@ export const cartContext = createContext({
     products:[],
     cartItems:[],
     apidata:[],
-   
+    itemcount:0,
     addToCart : () =>{}
 })
 

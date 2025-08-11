@@ -16,8 +16,11 @@ function App() {
     const [apiData,setApiData] = useState([])
 
     const [cartItems, setCartItems] = useState([])
+
+    const[itemcount,setItemCount] = useState(0)
   
     const addToCart = (products) =>{
+      console.log(products)
       setCartItems((prevItem) => {
         const checkExisting = prevItem.find((item) => item.id===products.id)
         if (checkExisting){
@@ -59,7 +62,7 @@ function App() {
   ])
   return (
     <>
-    <CartContextProvider value = {{ cartItems, apiData, addToCart}}>
+    <CartContextProvider value = {{ cartItems, apiData, addToCart, itemcount}}>
       <RouterProvider router={router}/>
       </CartContextProvider>
     </>

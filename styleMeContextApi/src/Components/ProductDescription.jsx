@@ -34,28 +34,30 @@ function ProductDescription() {
           <div className=' h-[70vh] w-[90vh] ml-72 mt-6 flex items-center justify-center flex-row shadow-xl shadow-gray-500'>
             <div className='grid grid-row-[2fr_1fr]'>
               <div className='  ml-6  '>
-                <img src={item.image}  alt=""  width="200" height="200" className="rounded-t-lg" />
+                <img src={item.image}  alt=""  width="200" height="200" className="rounded-t-lg block ml-auto mr-auto" />
               </div>
-              <div className='border-2 rounded-lg m-8 p-0.5 border-emerald-700' >
+              <div className='border-2 rounded-lg m-8 p-0.5 border-emerald-700 w-full' >
                 
                 <p className='ml-5 font-bold'>{item.title}</p>
                 <p>{`$ ${item.price}`}</p>
                 <button type="button" 
-                className='outline rounded-full  h-8 w-8 text-2xl bg-black text-white text-center text-bold'
+                className='outline rounded-full  h-8 w-8 text-2xl bg-emerald-900 text-white text-center text-bold'
                 onClick={() => increment()}>+</button>
                 <input type="number"
-                className='outline rounded-md m-2 p-0.5'
+                className='outline rounded-md m-2 p-0.5 w-7'
                 min={0}
                 value={itemcount} readOnly/>
                 <button type="button" 
-                className='outline rounded-full  h-8 w-8  text-2xl bg-black text-white text-center text-bold'
+                className='outline rounded-full  h-8 w-8  text-2xl bg-emerald-900 text-white text-center text-bold'
                 onClick={() => decrement()}>-</button>
 
-                <button className=' m-8 rounded-md p-1 cursor-pointer bg-gray-700 text-white '
+                <button className=' m-8 rounded-md p-1 cursor-pointer bg-emerald-900 text-white 
+                transition transform active:scale-95 px-4 py-2 
+                '
                 onClick={() => 
                   // <Cart imagevalue={imageUrl} productTitle={title} productPrice={price} productCount={count}/>
                   // console.log({item.price})
-                  addToCart([item.id,item.image,item.price,item.title,itemcount])
+                  addToCart([item.id,item.image ,item.price,item.title,itemcount])
                  
                 }
                 >ADD TO CART</button>  {/* iss button pr click krne se cart component me imageUrl 
@@ -65,7 +67,7 @@ function ProductDescription() {
 
           </div>
 
-          <div className='h-[20vh] w-[90vh] ml-72 mt-20'><p>{item.description }</p></div>
+          <div className='h-[20vh] w-[90vh] ml-72 mt-20 shadow-xl shadow-gray-500 '><p>{item.description}</p></div>
         </div>
         : "")
       }
