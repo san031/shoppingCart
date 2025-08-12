@@ -18,14 +18,24 @@ function App() {
     const [cartItems, setCartItems] = useState([])
 
     const[itemcount,setItemCount] = useState(0)
+
+    const increment =() =>{
+    setItemCount((prev) => prev+1)
+  }
+  const decrement =()=>{
+    if (itemcount<=0){
+      return;}
+    setItemCount((prev) => prev-1)
+  }
   
     const addToCart = (products) =>{
+      if(itemcount>0)
       console.log(products)
       setCartItems((prevItem) => {
-        const checkExisting = prevItem.find((item) => item.id===products.id)
+        const checkExisting = prevItem.find((item) => item[0]===products[0])
         if (checkExisting){
-          return prevItem.map((item) => ((item.id === products.id) ? 
-          {...item, [item[2]] : products.itemcount *products.price }:
+          return prevItem.map((item) => ((item[0] === products[0]) ? 
+          {...item, [item[2]] : itemcount *products[2]}:
            item))
         }
         
@@ -62,7 +72,7 @@ function App() {
   ])
   return (
     <>
-    <CartContextProvider value = {{ cartItems, apiData, addToCart, itemcount}}>
+    <CartContextProvider value = {{ cartItems, apiData, addToCart, increment,decrement, itemcount}}>
       <RouterProvider router={router}/>
       </CartContextProvider>
     </>
