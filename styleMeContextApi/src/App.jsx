@@ -40,8 +40,9 @@ function App() {
         }
         
         return [...prevItem,products]
-      })
-      
+      }
+    )
+
       // console.log(itemcount)
     }
     

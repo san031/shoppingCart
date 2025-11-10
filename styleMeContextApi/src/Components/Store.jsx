@@ -3,7 +3,7 @@ import { cartContext } from '../Context/CartContext'
 import { Link } from 'react-router-dom'
 
 function Store() {
-  const{apiData, addToCart, itemcount}= useContext(cartContext)
+  const{apiData, addToCart}= useContext(cartContext)
   // let itemcount=1
 
   // const[itemcount,setItemCount] = useState(0)
@@ -25,7 +25,7 @@ function Store() {
             cursor-pointer flex items-center
              justify-center bg-black text-white
               h-10 w-40 rounded-2xl float-start mb-0.5 '
-            onClick={() => addToCart([data.id,data.image,data.price,data.title,itemcount])}>ADD TO CART</button>
+            onClick={() => addToCart([data.id,data.image,data.price,data.title, 1])}>ADD TO CART</button>
             
           </li>
         ))}

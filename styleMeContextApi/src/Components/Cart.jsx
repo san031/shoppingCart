@@ -19,7 +19,7 @@ function Cart() {
       <ul>
       {
       cartItems.map((item,id) => 
-      <li key={id} className='flex flex-row justify-center items-center gap-2 h-36 w-full shadow-md'>
+      <li key={id} className='flex flex-row justify-center items-center gap-2 h-36 w-full shadow-md shadow-orange-300'>
         <img src={item[1]} className='w-24 h-24'></img>
         <div>${item[2]}</div>
         <div>{item[3]}</div>

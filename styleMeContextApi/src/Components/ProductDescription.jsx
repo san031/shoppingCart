@@ -4,18 +4,17 @@ import { useParams } from 'react-router-dom'
 
 function ProductDescription() {
 
-  const[itemcount, setItemCount] = useState(0)
-  const increment =() =>{
-    setItemCount((prev) => prev+1)
-  }
-  const decrement =()=>{
-    if (itemcount<=0){
-      return;}
-    setItemCount((prev) => prev-1)
-
-  }
+  // const[itemcount, setItemCount] = useState(0)
+  // const increment =() =>{
+  //   setItemCount((prev) => prev+1)
+  // }
+  // const decrement =()=>{
+  //   if (itemcount<=0){
+  //     return;}
+  //   setItemCount((prev) => prev-1)
+  // }
   let {id}=useParams()
-  const {apiData,addToCart} = useContext(cartContext)
+  const {apiData,addToCart, itemcount, increment, decrement} = useContext(cartContext)
   return (
     <div>
       {
@@ -58,7 +57,6 @@ function ProductDescription() {
                   // <Cart imagevalue={imageUrl} productTitle={title} productPrice={price} productCount={count}/>
                   // console.log({item.price})
                   addToCart([item.id,item.image ,item.price,item.title,itemcount])
-                 
                 }
                 >ADD TO CART</button>  {/* iss button pr click krne se cart component me imageUrl 
                 productTitle  productPrice productCount render hona chahiye */}

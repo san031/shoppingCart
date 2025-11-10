@@ -5,7 +5,9 @@ export const cartContext = createContext({
     cartItems:[],
     apidata:[],
     itemcount:0,
-    addToCart : () =>{}
+    addToCart : () =>{},
+    increment : () => {},
+    decrement: () => {}
 })
 
 export const CartContextProvider = cartContext.Provider
